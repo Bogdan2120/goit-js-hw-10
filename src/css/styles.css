@@ -18,3 +18,46 @@ body {
   max-width: 320px;
   margin-bottom: 16px;
 }
+
+.country-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  list-style: none;
+}
+
+.contry-search {
+  display: flex;
+  align-items: center;
+}
+
+.contry-search_name {
+  font-size: 18px;
+  margin: 0;
+}
+
+.contry-search_svg {
+  margin-right: 10px;
+}
+
+
+.contry-header {
+  display: flex;
+  align-items: center
+}
+
+.contry-svg {
+  margin-right: 10px;
+}
+
+.contry-name {
+  margin: 0;
+}
+
+.contry-descriptions {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  list-style: none;
+}
+
