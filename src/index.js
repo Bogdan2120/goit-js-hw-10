@@ -9,7 +9,7 @@ import './css/styles.css';
 
 const DEBOUNCE_DELAY = 300;
 
-refs = {
+const refs = {
   searchBox: document.querySelector('input#search-box'),
   countryList: document.querySelector('.country-list'),
   countryInfo: document.querySelector('.country-info'),
