@@ -18,38 +18,33 @@ const refs = {
 let items = [];
 
 function render(params) {
-  //   console.log(items);
-
   if (items.length > 10) {
-    console.log('Too many matches found. Please enter a more specific name.');
+    Notiflix.Notify.info(
+      'Too many matches found. Please enter a more specific name.'
+    );
   } else if (items.length === 1) {
     const list = items.map(renderCountry);
 
-    refs.countryList.innerHTML = '';
-    refs.countryInfo.innerHTML = '';
-    refs.countryInfo.insertAdjacentHTML('beforeend', list.join(' '));
+    cliareMarkup();
+    refs.countryInfo.insertAdjacentHTML('beforeend', list.join(''));
   } else if (2 >= items.length <= 10) {
     const list = items.map(renderCountries);
 
-    refs.countryInfo.innerHTML = '';
-    refs.countryList.innerHTML = '';
-    refs.countryList.insertAdjacentHTML('beforeend', list.join(' '));
+    cliareMarkup();
+    refs.countryList.insertAdjacentHTML('beforeend', list.join(''));
   }
 }
 
 function onSearchCantries(e) {
-  //console.log(e.target.value.trim());
   const searchText = e.target.value.trim();
   if (!searchText) {
-    refs.countryList.innerHTML = '';
-    refs.countryInfo.innerHTML = '';
+    cliareMarkup();
 
     return;
   }
 
   fetchCountries(searchText)
     .then(data => {
-      //console.log(data);
       items = data;
       render();
       // Data handling
@@ -63,3 +58,8 @@ refs.searchBox.addEventListener(
   'input',
   debounce(onSearchCantries, DEBOUNCE_DELAY)
 );
+
+function cliareMarkup() {
+  refs.countryList.innerHTML = '';
+  refs.countryInfo.innerHTML = '';
+}
